@@ -1,0 +1,66 @@
+li {
+  display: inline-flex;
+  flex-direction: column;
+  min-width: 300px;
+  color: white;
+  height: min-content;
+  font-size: 24px;
+  list-style: none;
+  gap: 12px;
+  padding: 30px;
+  position: relative;
+  outline: 1px dotted rgb(255, 255, 255);
+  outline-offset: -4px;
+  outline-width: 2px;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+.contact {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  font-size: 16px;
+  align-items: first baseline;
+  font-weight: 500;
+  text-transform: uppercase;
+  gap: 15px;
+}
+
+.value {
+  text-transform: capitalize;
+  font-size: 28px;
+  font-weight: 400;
+  color: white;
+}
+
+.button {
+  display: block;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-image: url(https://img.icons8.com/?size=512&id=VntZK7oiCJSH&format=png);
+  background-size: 85%;
+  background-repeat: no-repeat;
+  background-position: 1.5px 1.5px;
+
+  width: 20px;
+  height: 20px;
+}
+.button:active {
+  background-color: #edfeff13;
+  box-shadow: rgba(41, 180, 168, 0.594) 0px 3px 8px;
+  transform: translateY(4px);
+}
+.button:hover {
+  background-color: #ece9e9fd;
+  color: rgb(100, 100, 100);
+}

@@ -1,0 +1,30 @@
+.app {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  background: white;
+  min-width: 360px;
+
+
+  padding: 15px;
+
+
+  background-image: url(https://fastly.picsum.photos/id/135/2560/1920.jpg?hmac=MAh0eBIqBNEgND6D2vgcIBIQ4BE1jzewN1QQWDfBBEY),
+    linear-gradient(#868AA5, #868AA5);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+input {
+  background-color: rgba(255, 255, 255, 0.261);
+}
+body {
+  background-color: #dbcdc0;
+}
+@media screen and (min-width: 720px) {
+  .app {
+    height: 100vh;
+    padding: 50px;
+  }
+}

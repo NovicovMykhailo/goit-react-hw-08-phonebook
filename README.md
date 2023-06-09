@@ -6,7 +6,6 @@
   filter: ""
 }
 
-"Создай хранилище с" configureStore()
 "Используй функцию" createSlice()
 ```
 

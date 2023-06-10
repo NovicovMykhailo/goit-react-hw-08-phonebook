@@ -64,7 +64,7 @@ export default function PhoneBookForm() {
         <input
           type="tel"
           name="number"
-          pattern="+[789][0-9]{9}"
+          pattern="/^+91(7\d|8\d|9\d)\d{9}$/"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
           placeholder="(NNN) NNN NN NN"

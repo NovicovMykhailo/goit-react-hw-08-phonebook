@@ -27,3 +27,4 @@ ContactList.propTypes = {
   list: PropTypes.array,
   removeCard: PropTypes.func,
 };
+

@@ -1,12 +1,23 @@
+import { useDispatch} from 'react-redux';
 import css from './PhoneBookForm.module.css';
 import formatPhoneNumber from './utils';
-import PropTypes from 'prop-types';
-import {useState} from 'react'
+
+import { useState } from 'react'
+import { addContact } from '../../redux/index';
 
 
-export default function PhoneBookForm(props) {
+
+
+
+
+export default function PhoneBookForm() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+
+  const dispatch = useDispatch();
+  // const contacts = useSelector(state => state.contacts);
+
+
 
   const onInputValue = e => {
     if (e.target.name === 'number') {
@@ -24,8 +35,16 @@ export default function PhoneBookForm(props) {
 
   const handlerOnSubmit = e => {
     e.preventDefault();
-    props.onSubmit({ name, number });
-    reset();
+
+    // if (contacts.find(o => o.name.toLowerCase() === data.name.toLowerCase())) {
+    //   return alert(`<< ${data.name} >> is already in contacts`);
+    // } else {
+
+    // }
+    dispatch(addContact({name,number }));
+ reset();
+    // props.onSubmit({ name, number });
+   
   };
 
   const reset = () => {
@@ -71,6 +90,3 @@ export default function PhoneBookForm(props) {
 
 
 
-PhoneBookForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};

@@ -2,10 +2,9 @@ import css from './ContactList.module.css';
 import ContactCard from '../ContactCard/ContactCard';
 import PropTypes from 'prop-types';
 
-const shortid = require('shortid');
 
 export default function ContactList(props) {
-  const { list, removeCard } = props;
+  const {list} = props;
   return (
     <ul className={css.contactList}>
       {list.map(item => {
@@ -14,8 +13,7 @@ export default function ContactList(props) {
             name={item.name}
             number={item.number}
             id={item.id}
-            key={shortid.generate()}
-            deleteCard={removeCard}
+            key={item.id}
           />
         );
       })}
@@ -25,6 +23,6 @@ export default function ContactList(props) {
 
 ContactList.propTypes = {
   list: PropTypes.array,
-  removeCard: PropTypes.func,
+
 };
 

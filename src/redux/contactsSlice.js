@@ -1,7 +1,5 @@
 import shortid from 'shortid';
 
-import { persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
 
 const { createSlice } = require('@reduxjs/toolkit');
 
@@ -27,13 +25,8 @@ export const contactsSlice = createSlice({
   },
 });
 
-//Persist
 
-const persistConfig = { key: 'root', storage, timeout: null };
 
-export const persistedContactsReducer = persistReducer(
-  persistConfig,
-  contactsSlice.reducer
-);
+
 
 export const { addContact, deleteContact } = contactsSlice.actions;

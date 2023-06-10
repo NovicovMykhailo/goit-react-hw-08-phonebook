@@ -1,15 +1,16 @@
 import css from './ContactCard.module.css';
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
-import { deleteContact } from 'redux/contactsSlice';
+import { useDispatch } from 'react-redux';//Redux
+import { deleteContact } from 'redux/contactsSlice';//Redux
 
 
 export default function ContactCard({ name, number, id }) {
+  //redux
   const dispatch = useDispatch();
+
   const handleDeleteCard = e => {
     let currentId = e.currentTarget.parentNode.dataset.id;
-
-    dispatch(deleteContact(currentId));
+    dispatch(deleteContact(currentId));//Redux
   };
 
   return (

@@ -1,24 +1,22 @@
 import css from './App.module.css';
-// import { useState, useEffect } from 'react';
 import PhoneBookForm from './PhoneBookForm/PhoneBookForm';
 import ContactList from './ContactList/ContactList';
 import Filter from './Filter/Filter';
 
 import Section from './Section/Section';
-import { useSelector, useDispatch } from 'react-redux';
-import { setFilter } from 'redux/filterSlice';
+import { useSelector, useDispatch } from 'react-redux';//redux
+import { setFilter } from 'redux/filterSlice';//redux
 
 
 export function App() {
-  //selectors
+  //Redux selectors
   const contacts = useSelector(state => state.contacts);
   const filter = useSelector(state => state.filter);
   const dispatch = useDispatch()
 
 
   const changeFilter = e => {
-
-    dispatch(setFilter(e.currentTarget.value));
+    dispatch(setFilter(e.currentTarget.value));//redux
   };
 
   const normalizeFilter = filter.toLowerCase();

@@ -29,11 +29,7 @@ export const contactsSlice = createSlice({
 
 //Persist
 
-const persistConfig = {
-  key: 'contacts',
-  storage,
-};
-
+const persistConfig = { key: 'root', storage, timeout: null };
 
 export const persistedContactsReducer = persistReducer(
   persistConfig,

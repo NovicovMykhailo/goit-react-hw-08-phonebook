@@ -45,7 +45,12 @@ export default function PhoneBookForm() {
   };
 
   return (
-    <form action="" className={css.form} onSubmit={handlerOnSubmit}>
+    <form
+      action=""
+      className={css.form}
+      onSubmit={handlerOnSubmit}
+      autoComplete="off"
+    >
       <label>
         Name
         <input
@@ -64,7 +69,7 @@ export default function PhoneBookForm() {
         <input
           type="tel"
           name="number"
-          pattern="/^+91(7\d|8\d|9\d)\d{9}$/"
+          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
           placeholder="(NNN) NNN NN NN"

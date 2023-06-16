@@ -2,7 +2,7 @@ li {
   display: inline-flex;
   flex-direction: column;
 
-
+  min-width: 270px;
   color: white;
   height: min-content;
   font-size: 24px;
@@ -72,6 +72,6 @@ li {
 @media screen and (min-width: 720px) {
   li {
     padding: 30px;
-    max-width: 328px;
+
   }
 }

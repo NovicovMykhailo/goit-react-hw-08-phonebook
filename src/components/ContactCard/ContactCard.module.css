@@ -1,7 +1,8 @@
 li {
   display: inline-flex;
   flex-direction: column;
-  min-width: 300px;
+
+
   color: white;
   height: min-content;
   font-size: 24px;
@@ -35,6 +36,10 @@ li {
   font-size: 28px;
   font-weight: 400;
   color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
 }
 
 .button {
@@ -63,4 +68,10 @@ li {
 .button:hover {
   background-color: #ece9e9fd;
   color: rgb(100, 100, 100);
+}
+@media screen and (min-width: 720px) {
+  li {
+    padding: 30px;
+    max-width: 328px;
+  }
 }

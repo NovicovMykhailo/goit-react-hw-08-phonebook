@@ -2,21 +2,35 @@ import css from './App.module.css';
 import PhoneBookForm from './PhoneBookForm/PhoneBookForm';
 import ContactList from './ContactList/ContactList';
 import Filter from './Filter/Filter';
+import { fetchAll } from 'redux/operations';
+import {
+  getContacts,
+  getIsLoading,
+  getError,
+} from '../redux/selectors';
 
 import Section from './Section/Section';
-import { useSelector, useDispatch } from 'react-redux';//redux
-import { setFilter } from 'redux/filterSlice';//redux
-
+import { useSelector, useDispatch } from 'react-redux'; //redux
+import { setFilter } from 'redux/filterSlice'; //redux
+import { useEffect } from 'react';
+import Loader from './Loader/Loader';
+import Tost from './Tost/Tost';
 
 export function App() {
   //Redux selectors
-  const contacts = useSelector(state => state.contacts);
-  const filter = useSelector(state => state.filter);
-  const dispatch = useDispatch()
+  const contacts = useSelector(getContacts);
+  const isLoading = useSelector(getIsLoading);
+  const error = useSelector(getError);
 
+  const filter = useSelector(state => state.filter);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchAll());
+  }, [dispatch]);
 
   const changeFilter = e => {
-    dispatch(setFilter(e.currentTarget.value));//redux
+    dispatch(setFilter(e.currentTarget.value)); //redux
   };
 
   const normalizeFilter = filter.toLowerCase();
@@ -33,7 +47,9 @@ export function App() {
         <Filter onChange={changeFilter} filterValue={filter} />
       </Section>
       <Section>
-        <ContactList list={foundContacts} />
+        {isLoading && !error && <Loader />}
+        {error && <Tost message={error} />}
+        <ContactList list={foundContacts.reverse()} />
       </Section>
     </div>
   );

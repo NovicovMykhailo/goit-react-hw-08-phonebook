@@ -1,5 +1,4 @@
-.filterField{
-
+.filterField {
   padding: 10px 25px;
   border-radius: 10px;
   margin-top: 10px;
@@ -13,15 +12,24 @@
 }
 .filterField:hover,
 .filterField:focus {
-   outline: 2px solid rgb(120, 119, 119);
+  outline: 2px solid rgb(120, 119, 119);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-.label{
+.label {
   font-size: 24px;
   font-weight: 400;
-   color:black;
-}
-.filterField::placeholder{
   color: black;
 }
-.filterField { font-size: 24px; font-family: monospace;   color: rgb(73,73,73);}
+.filterField::placeholder {
+  color: black;
+}
+.filterField {
+  font-size: 1.4rem;
+  font-family: monospace;
+  color: rgb(73, 73, 73);
+}
+@media screen and (min-width: 720px) {
+  .filterField {
+    font-size: 24px;
+  }
+}

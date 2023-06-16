@@ -2,18 +2,17 @@
   display: flex;
   gap: 25px;
   font-size: 20px;
-  color:black;
+  color: black;
   align-items: flex-end;
   flex-wrap: wrap;
+  width: 100%;
 }
-.form label{
-display:flex;
-flex-wrap: wrap;
-   flex-direction: column;
-gap: 10px;
-align-items: first baseline;
-
-
+.form label {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 10px;
+  align-items: first baseline;
 }
 
 .form input {
@@ -22,7 +21,7 @@ align-items: first baseline;
   margin-top: 10px;
   outline: none;
   border: none;
-  font-size: 24px; 
+  font-size: 1.4rem;
   font-family: monospace;
   font-weight: 500;
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
@@ -42,28 +41,36 @@ align-items: first baseline;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   white-space: nowrap;
-  font-size: 24px;
-
- 
+    font-size: 1.2rem;
 }
 .addContact:active {
   background-color: #edfeff;
   box-shadow: rgba(41, 180, 168, 0.594) 0px 3px 8px;
   transform: translateY(4px);
 }
-.addContact:hover{
-     background-color: #ece9e9;
-
+.addContact:hover {
+  background-color: #ece9e9;
+ 
 }
 
-@media screen and (min-width: 720px){
-  .form{
-      width: 400px;
-      flex-wrap: nowrap;
+  @media screen and (max-width: 720px){
+    .form{
+width: 400px;
+    }
   }
 
-  .form label{
-    flex-direction: column;
+@media screen and (min-width: 720px) {
+  .form {
+    flex-wrap: nowrap;
+  }
 
+  .form label {
+    flex-direction: column;
+  }
+  .form input {
+    font-size: 24px;
+  }
+  .addContact {
+    font-size: 24px;
   }
 }

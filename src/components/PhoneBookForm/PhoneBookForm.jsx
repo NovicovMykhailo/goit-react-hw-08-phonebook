@@ -1,30 +1,16 @@
 import { useState } from 'react';
 import css from './PhoneBookForm.module.css';
-import formatPhoneNumber from './utils';
-
+import { getContacts } from '../../redux/selectors';
+import { addContact } from '../../redux/operations';
 import { useDispatch, useSelector } from 'react-redux'; //redux
-import { addContact } from 'redux/contactsSlice'; //redux
 
 export default function PhoneBookForm() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+
   //redux
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contacts);
-  //
-  const onInputValue = e => {
-    if (e.target.name === 'number') {
-      setNumber(formatPhoneNumber(e.target.value));
-    } else {
-      setName(e.target.value);
-    }
-  };
-
-  const clearingField = e => {
-    if (e.key === 'Backspace') {
-      setNumber({ number: '' });
-    }
-  };
+  const contacts = useSelector(getContacts);
 
   const handlerOnSubmit = e => {
     e.preventDefault();
@@ -34,7 +20,7 @@ export default function PhoneBookForm() {
       return alert(`<< ${name} >> is already in contacts`);
     } else {
       //redux
-      dispatch(addContact({ name, number }));
+      dispatch(addContact({ name, phone: number }));
       reset();
     }
   };
@@ -56,12 +42,11 @@ export default function PhoneBookForm() {
         <input
           type="text"
           name="name"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
           value={name}
-          onChange={onInputValue}
-          onClick={clearingField}
+          onChange={e => setName(e.target.value)}
         />
       </label>
       <label>
@@ -70,12 +55,11 @@ export default function PhoneBookForm() {
           type="tel"
           name="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+          title="Phone number must be digits and can not contain spaces, dashes, parentheses and can start with +"
           required
           placeholder="(NNN) NNN NN NN"
           value={number}
-          onChange={onInputValue}
-          onKeyDown={clearingField}
+          onChange={e => setNumber(e.target.value)}
         />
       </label>
       <button type="submit" className={css.addContact}>

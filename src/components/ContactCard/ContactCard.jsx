@@ -1,7 +1,8 @@
 import css from './ContactCard.module.css';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';//Redux
-import { deleteContact } from 'redux/contactsSlice';//Redux
+import { deleteContact } from 'redux/operations';
+
 
 
 export default function ContactCard({ name, number, id }) {

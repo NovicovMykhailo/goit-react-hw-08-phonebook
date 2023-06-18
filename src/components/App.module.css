@@ -20,6 +20,8 @@ body {
 @media screen and (min-width: 720px) {
   .app {
     height: 100vh;
-    padding: 50px;
+    padding: 20px;
   }
 }
+
+

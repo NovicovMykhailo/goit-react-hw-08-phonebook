@@ -2,7 +2,7 @@
   padding: 10px 25px;
   border-radius: 10px;
   margin-top: 10px;
-  margin-right: 25px;
+
   margin-bottom: 20px;
 
   outline: none;
@@ -31,5 +31,6 @@
 @media screen and (min-width: 720px) {
   .filterField {
     font-size: 24px;
+      margin-right: 25px;
   }
 }

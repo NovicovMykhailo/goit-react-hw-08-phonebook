@@ -1,8 +1,8 @@
 li {
   display: inline-flex;
   flex-direction: column;
+  width: 100%;
 
-   min-width: 280px;
   color: white;
   height: min-content;
   font-size: 24px;
@@ -19,6 +19,7 @@ li {
   border-radius: 10px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+        box-sizing: border-box;
 }
 .contact {
   display: flex;
@@ -29,6 +30,7 @@ li {
   font-weight: 500;
   text-transform: uppercase;
   gap: 15px;
+  white-space: nowrap;
 }
 
 .value {
@@ -69,9 +71,16 @@ li {
   background-color: #ece9e9fd;
   color: rgb(100, 100, 100);
 }
-@media screen and (min-width: 720px) {
-  li {
-    padding: 30px;
 
+/* @media screen and (min-width: 540px) {
+  li {
+
+  }
+} */
+
+@media screen and (min-width: 721px) {
+  li {
+        width: 328px;
+    padding: 30px;
   }
 }

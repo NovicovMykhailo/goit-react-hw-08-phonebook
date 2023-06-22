@@ -1,0 +1,21 @@
+.basicButton {
+  display: flex;
+  padding: 10px 25px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  font-size: 1.2rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+.basicButton:active {
+  background-color: #edfeff;
+  box-shadow: rgba(41, 180, 168, 0.594) 0px 3px 8px;
+  transform: translateY(4px);
+}
+.basicButton:hover {
+  background-color: #ece9e9;
+}

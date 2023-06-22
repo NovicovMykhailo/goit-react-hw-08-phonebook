@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import css from './PhoneBookForm.module.css';
-import { getContacts } from '../../redux/selectors';
+import { selectContacts } from '../../redux/selectors';
 import { addContact } from '../../redux/operations';
 import { useDispatch, useSelector } from 'react-redux'; //redux
 
@@ -10,7 +10,7 @@ export default function PhoneBookForm() {
 
   //redux
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
 
   const handlerOnSubmit = e => {
     e.preventDefault();

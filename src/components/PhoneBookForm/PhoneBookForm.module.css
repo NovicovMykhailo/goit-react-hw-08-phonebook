@@ -6,6 +6,8 @@
   align-items: flex-end;
   flex-wrap: wrap;
   width: 100%;
+  margin-bottom: 24px;
+  color: white;
 }
 .form label {
   display: flex;
@@ -20,17 +22,21 @@
   border-radius: 10px;
   margin-top: 10px;
   outline: none;
-  border: none;
+
   font-size: 1.4rem;
   font-family: monospace;
   font-weight: 500;
-  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
-    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  color: black;
+
+  border: 1px solid rgb(120, 119, 119);
+}
+.form input::placeholder {
+  color: black;
 }
 .form input:hover,
 .form input:focus {
-  outline: 2px solid rgb(120, 119, 119);
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border: 1px solid rgb(78, 78, 78);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 8px;
 }
 .addContact {
   display: block;
@@ -38,12 +44,10 @@
   border-radius: 10px;
   border: none;
   cursor: pointer;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   white-space: nowrap;
-    font-size: 1.2rem;
-    width:100%;
-
+  font-size: 1.2rem;
+  width: 100%;
 }
 .addContact:active {
   background-color: #edfeff;
@@ -52,14 +56,10 @@
 }
 .addContact:hover {
   background-color: #ece9e9;
- 
 }
-
-
 
 @media screen and (min-width: 721px) {
   .form {
-
     justify-content: flex-start;
   }
 
@@ -71,6 +71,15 @@
   }
   .addContact {
     font-size: 24px;
-     max-width:328px;
+    max-width: 328px;
+  }
+}
+
+@media screen and (min-width: 721px) {
+  .form input {
+    max-width: 340px !important;
+  }
+  .form label {
+    max-width: 328px;
   }
 }

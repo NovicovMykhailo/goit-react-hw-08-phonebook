@@ -56,7 +56,8 @@ export default function PhoneBookForm({onClick}) {
             pattern="^(\+?[0-9.\(\)\-\s]*)$"
             title="Phone number must be digits and can not contain spaces, dashes, parentheses and can start with +"
             required
-            placeholder="(NNN) NNN NN NN"
+            // placeholder="(NNN) NNN NN NN"
+            placeholder="Enter phone number"
             value={number}
             onChange={e => setNumber(e.target.value)}
           />

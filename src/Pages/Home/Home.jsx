@@ -6,26 +6,27 @@ import ContactList from 'components/ContactList/ContactList';
 import Filter from 'components/Filter/Filter';
 import Modal from 'components/Modal/Modal';
 import css from './Home.module.css';
- import { Toaster } from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
+
+
 //redux
 import { fetchAll } from 'redux/operations';
-import { selectContacts, selectIsLoading, selectError, selectFilter } from '../redux/selectors';
-
+import { selectContacts, selectIsLoading, selectError, selectFilter } from '../../redux/selectors';
 import { useSelector, useDispatch } from 'react-redux'; //redux
 import { setFilter } from 'redux/filterSlice'; //redux
 import { useEffect, useState } from 'react';
 
-
 export function Home() {
   const [isShownModal, setIsShownModal] = useState(false);
+  const dispatch = useDispatch();
 
   //Redux selectors
   const contacts = useSelector(selectContacts);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
-
   const filter = useSelector(selectFilter);
-  const dispatch = useDispatch();
+
+
 
   useEffect(() => {
     dispatch(fetchAll());
@@ -35,9 +36,9 @@ export function Home() {
     dispatch(setFilter(e.currentTarget.value)); //redux
   };
 
-const showModal = ()=> {
-    setIsShownModal(prev => !prev)
-  }
+  const showModal = () => {
+    setIsShownModal(prev => !prev);
+  };
 
   const normalizeFilter = filter.toLowerCase();
   const foundContacts = contacts.filter(contact => contact.name.toLowerCase().includes(normalizeFilter));

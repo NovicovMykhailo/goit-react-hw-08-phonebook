@@ -1,13 +1,29 @@
+.container {
+  max-width: 430px;
+
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  color: #525252;
+  padding: 2rem;
+  position: relative;
+}
+
+.container header {
+  font-size: 2rem;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
 .form {
   display: flex;
   gap: 20px;
   font-size: 20px;
   color: black;
   align-items: flex-end;
-  flex-wrap: wrap;
-  width: 100%;
-  margin-bottom: 24px;
-  color: white;
+  color: #444444;
+  flex-direction: column;
 }
 .form label {
   display: flex;
@@ -20,10 +36,10 @@
 .form input {
   padding: 10px 25px;
   border-radius: 10px;
-  margin-top: 10px;
   outline: none;
 
   font-size: 1.4rem;
+    /* font-size: 1.15rem; */
   font-family: monospace;
   font-weight: 500;
   color: black;
@@ -32,6 +48,7 @@
 }
 .form input::placeholder {
   color: black;
+  font-size: 1.15rem;
 }
 .form input:hover,
 .form input:focus {
@@ -48,6 +65,10 @@
   white-space: nowrap;
   font-size: 1.2rem;
   width: 100%;
+  align-self: flex-end;
+  margin: 20px 0;
+  color: #fff;
+  background: #2691d9;
 }
 .addContact:active {
   background-color: #edfeff;
@@ -55,8 +76,35 @@
   transform: translateY(4px);
 }
 .addContact:hover {
-  background-color: #ece9e9;
+   background:  #2691d9;
 }
+
+.closeBtn {
+  display: block;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+   background-color: inherit;
+  background-image: url(https://img.icons8.com/?size=512&id=VntZK7oiCJSH&format=png);
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  width: 30px;
+  height: 30px;
+}
+.closeBtn:active {
+  background-color: #edfeff13;
+  box-shadow: rgba(41, 180, 168, 0.594) 0px 3px 8px;
+  transform: translateY(4px);
+}
+.closeBtn:hover {
+  background-color: #f9f7f7fd;
+}
+
 
 @media screen and (min-width: 721px) {
   .form {
@@ -71,15 +119,14 @@
   }
   .addContact {
     font-size: 24px;
-    max-width: 328px;
   }
 }
 
-@media screen and (min-width: 721px) {
+/* @media screen and (min-width: 721px) {
   .form input {
     max-width: 340px !important;
   }
   .form label {
     max-width: 328px;
   }
-}
+} */

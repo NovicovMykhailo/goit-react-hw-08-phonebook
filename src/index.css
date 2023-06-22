@@ -6,6 +6,8 @@ body {
     'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #fff;
+  background: linear-gradient(120deg, #2980b9, #8e44ad);
 }
 
 code {
@@ -16,12 +18,7 @@ input {
   width: 100% !important;
   box-sizing: border-box;
 }
-body {
 
-  color: #fff;
-  background:linear-gradient(120deg,#2980b9, #8e44ad);
-  
-}
 
 label {
   width: 100%;

@@ -4,22 +4,20 @@ import Loader from 'components/Loader/Loader';
 import Tost from 'components/Tost/Tost';
 import ContactList from 'components/ContactList/ContactList';
 import Filter from 'components/Filter/Filter';
-import css from './Home.module.css'
+import Modal from 'components/Modal/Modal';
+import css from './Home.module.css';
 //redux
 import { fetchAll } from 'redux/operations';
-import {
-  selectContacts,
-  selectIsLoading,
-  selectError,
-  selectFilter,
-} from '../redux/selectors';
+import { selectContacts, selectIsLoading, selectError, selectFilter } from '../redux/selectors';
 
 import { useSelector, useDispatch } from 'react-redux'; //redux
 import { setFilter } from 'redux/filterSlice'; //redux
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 
 export function Home() {
+  const [isShownModal, setIsShownModal] = useState(false);
+
   //Redux selectors
   const contacts = useSelector(selectContacts);
   const isLoading = useSelector(selectIsLoading);
@@ -36,16 +34,22 @@ export function Home() {
     dispatch(setFilter(e.currentTarget.value)); //redux
   };
 
+const showModal = ()=> {
+    setIsShownModal(prev => !prev)
+  }
+
   const normalizeFilter = filter.toLowerCase();
-  const foundContacts = contacts.filter(contact =>
-    contact.name.toLowerCase().includes(normalizeFilter)
-  );
+  const foundContacts = contacts.filter(contact => contact.name.toLowerCase().includes(normalizeFilter));
 
   return (
     <div className={css.container}>
       <Layout>
-        <PhoneBookForm />
-        <Filter onChange={changeFilter} filterValue={filter} />
+        <Filter onChange={changeFilter} filterValue={filter} onClick={showModal} />
+        {isShownModal && (
+          <Modal onClose={showModal}>
+            <PhoneBookForm onClick={showModal} />
+          </Modal>
+        )}
         {isLoading && !error && <Loader />}
         {error && <Tost message={error} />}
         <ContactList list={foundContacts.reverse()} />

@@ -1,23 +1,27 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import css from './LoginForm.module.css';
 import { useState } from 'react';
 
 const LoginForm = () => {
-
-    const [formData, setFormData] = useState({
-      email: '',
-      password: '',
-    });
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+  });
 
   function handleChange(e) {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   }
+  const handleSubmit = e => {
+    e.preventDefault();
+    navigate('/', { replace: true });
+  };
 
   return (
     <div className={css.container}>
       <div className={css.form}>
         <header>Login</header>
-        <form autoComplete="off">
+        <form autoComplete="off" onSubmit={handleSubmit}>
           <input
             type="email"
             name="email"

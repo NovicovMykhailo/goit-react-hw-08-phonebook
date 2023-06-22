@@ -1,8 +1,9 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import css from './RegistrationForm.module.css';
 import { useState } from 'react';
 
 const RegistrationForm = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -13,11 +14,16 @@ const RegistrationForm = () => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
+  const handleSubmit = e => {
+    e.preventDefault();
+    navigate('/', { replace: true });
+  };
+
   return (
     <div className={css.container}>
       <div className={css.form}>
         <header>Signup</header>
-        <form autoComplete="off">
+        <form autoComplete="off" onSubmit={handleSubmit}>
           <input
             type="text"
             name="name"

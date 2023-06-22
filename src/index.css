@@ -9,6 +9,9 @@ body {
   color: #fff;
   background: linear-gradient(120deg, #2980b9, #8e44ad);
 }
+body::-webkit-scrollbar {
+    display: none;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;

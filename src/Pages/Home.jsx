@@ -6,6 +6,7 @@ import ContactList from 'components/ContactList/ContactList';
 import Filter from 'components/Filter/Filter';
 import Modal from 'components/Modal/Modal';
 import css from './Home.module.css';
+ import { Toaster } from 'react-hot-toast';
 //redux
 import { fetchAll } from 'redux/operations';
 import { selectContacts, selectIsLoading, selectError, selectFilter } from '../redux/selectors';
@@ -45,6 +46,7 @@ const showModal = ()=> {
     <div className={css.container}>
       <Layout>
         <Filter onChange={changeFilter} filterValue={filter} onClick={showModal} />
+        <Toaster />
         {isShownModal && (
           <Modal onClose={showModal}>
             <PhoneBookForm onClick={showModal} />

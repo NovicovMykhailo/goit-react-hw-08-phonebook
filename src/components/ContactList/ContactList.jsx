@@ -2,21 +2,15 @@ import css from './ContactList.module.css';
 import ContactCard from '../ContactCard/ContactCard';
 import PropTypes from 'prop-types';
 
-
 export default function ContactList(props) {
-  const {list} = props;
-  
+  const { list } = props;
+
+
+
   return (
     <ul className={css.contactList}>
       {list.map(item => {
-        return (
-          <ContactCard
-            name={item.name}
-            number={item.phone}
-            id={item.id}
-            key={item.id}
-          />
-        );
+        return <ContactCard name={item.name} number={item.phone} id={item.id} key={item.id} />;
       })}
     </ul>
   );
@@ -24,6 +18,4 @@ export default function ContactList(props) {
 
 ContactList.propTypes = {
   list: PropTypes.array,
-
 };
-

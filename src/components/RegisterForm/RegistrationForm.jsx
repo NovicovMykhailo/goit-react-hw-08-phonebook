@@ -1,16 +1,52 @@
 import { Link } from 'react-router-dom';
 import css from './RegistrationForm.module.css';
+import { useState } from 'react';
 
 const RegistrationForm = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+  });
+
+  function handleChange(e) {
+    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  }
+
   return (
     <div className={css.container}>
       <div className={css.form}>
         <header>Signup</header>
-        <form autocomplete="off">
-          <input type={css.text} placeholder="Name" />
-          <input type={css.text} placeholder="Enter your email" />
-          <input type={css.password} placeholder="Create a password" />
-          <input type={css.password} placeholder="Confirm your password" />
+        <form autoComplete="off">
+          <input
+            type="text"
+            name="name"
+            className={css.text}
+            placeholder="Name"
+            onChange={handleChange}
+            value={formData.name}
+            pattern="^[A-Za-z\u0080-\uFFFF ']+$"
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            className={css.text}
+            placeholder="Enter your email"
+            onChange={handleChange}
+            value={formData.email}
+            pattern="/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/"
+            required
+          />
+          <input
+            type="pasword"
+            name="password"
+            className={css.password}
+            placeholder="Create a password"
+            onChange={handleChange}
+            value={formData.password}
+            required
+          />
           <button type="submit" className={css.button}>
             Signup
           </button>

@@ -1,5 +1,6 @@
 import Nav from './Nav';
 
+
 const Layout = ({ children }) => {
   return (
     <div style={{width: '100%'}}>

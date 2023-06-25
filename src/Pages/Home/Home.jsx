@@ -8,10 +8,9 @@ import Modal from 'components/Modal/Modal';
 import css from './Home.module.css';
 import { Toaster } from 'react-hot-toast';
 
-
 //redux
 import { fetchAll } from 'redux/operations';
-import { selectContacts, selectIsLoading, selectError, selectFilter } from '../../redux/selectors';
+import { selectContacts, selectError, selectFilter, selectIsLoading } from '../../redux/selectors';
 import { useSelector, useDispatch } from 'react-redux'; //redux
 import { setFilter } from 'redux/filterSlice'; //redux
 import { useEffect, useState } from 'react';
@@ -24,9 +23,9 @@ export function Home() {
   const contacts = useSelector(selectContacts);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
+
+  
   const filter = useSelector(selectFilter);
-
-
 
   useEffect(() => {
     dispatch(fetchAll());
@@ -45,7 +44,7 @@ export function Home() {
 
   return (
     <div className={css.container}>
-      <Layout>
+      <Layout >
         <Filter onChange={changeFilter} filterValue={filter} onClick={showModal} />
         <Toaster />
         {isShownModal && (

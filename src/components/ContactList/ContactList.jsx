@@ -10,7 +10,7 @@ export default function ContactList(props) {
   return (
     <ul className={css.contactList}>
       {list.map(item => {
-        return <ContactCard name={item.name} number={item.phone} id={item.id} key={item.id} />;
+        return <ContactCard name={item.name} number={item.number} id={item.id} key={item.id} />;
       })}
     </ul>
   );

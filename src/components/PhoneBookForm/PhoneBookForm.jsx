@@ -20,7 +20,7 @@ export default function PhoneBookForm({onClick}) {
       return alert(`<< ${name} >> is already in contacts`);
     } else {
       //redux
-      dispatch(addContact({ name, phone: number }));
+      dispatch(addContact({ name, number }));
       reset();
       onClick()
     }
@@ -44,6 +44,7 @@ export default function PhoneBookForm({onClick}) {
             pattern="^[A-Za-z\u0080-\uFFFF ']+$"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
+            placeholder="Enter Name"
             value={name}
             onChange={e => setName(e.target.value)}
           />
@@ -56,7 +57,6 @@ export default function PhoneBookForm({onClick}) {
             pattern="^(\+?[0-9.\(\)\-\s]*)$"
             title="Phone number must be digits and can not contain spaces, dashes, parentheses and can start with +"
             required
-            // placeholder="(NNN) NNN NN NN"
             placeholder="Enter phone number"
             value={number}
             onChange={e => setNumber(e.target.value)}

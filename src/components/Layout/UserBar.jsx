@@ -1,41 +1,29 @@
 import Button from 'components/Button/Button';
 import avatar from '../../assets/avatar.jpg';
 import arrowIcon from '../../assets/arrow.png';
-import { useNavigate } from 'react-router-dom';
 
-import css from'./UserBar.module.css'
+import css from './UserBar.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectUser } from '../../redux/auth/selectors';
+import { logOut } from '../../redux/auth/operations';
 
+const UserBar = () => {
 
+  const userName = useSelector(selectUser);
+  const dispatch = useDispatch();
 
-
-const UserBar = ({ name = 'UserName' }) => {
-  const navigate = useNavigate()
-  
   function handleLogout() {
-    navigate('/login');
+    dispatch(logOut());
 
   }
   return (
     <div className={css.container}>
-      <h3 className={css.userName}>Hello, {name}</h3>
-      <img
-        src={avatar}
-        alt="avatar"
-        width="100"
-        className={css.icon}
-      />
-
+      <h3 className={css.userName}>{`Hi, ${userName}`}</h3>
+      <img src={avatar} alt="avatar" width="100" className={css.icon} />
       <Button name={'Logout'} onClick={handleLogout}>
-        <img
-          src={arrowIcon}
-          alt="Arrow"
-          width="20"
-          className={css.imageIcon}
-          style={{  }}
-        />
+        <img src={arrowIcon} alt="Arrow" width="20" className={css.imageIcon} style={{}} />
       </Button>
     </div>
   );
 };
 export default UserBar;
-

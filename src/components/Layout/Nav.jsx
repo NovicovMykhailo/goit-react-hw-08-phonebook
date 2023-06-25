@@ -1,12 +1,15 @@
 const { default: UserBar } = require('./UserBar');
 
 const Nav = () => {
+
+
+
   return (
     <div style={styles.hedder}>
       <h3 style={{ fontSize: 25, margin: 0, display: 'block' }}>
         PhoneBook
       </h3>
-      <UserBar />
+      <UserBar/>
     </div>
   );
 };

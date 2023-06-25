@@ -2,12 +2,10 @@ import { Link } from 'react-router-dom';
 import css from './LoginForm.module.css';
 import { logIn } from '../../redux/auth/operations';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import toast, { Toaster } from 'react-hot-toast';
-import { selectError } from '../../redux/auth/selectors';
 
 const LoginForm = () => {
-  const error = useSelector(selectError);
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     email: '',
@@ -33,7 +31,7 @@ const LoginForm = () => {
 
     dispatch(logIn(formData)).then(action => {
       if ((action.type = 'auth/login/rejected')) {
-        notify()
+        notify();
       }
     });
     resetForm();

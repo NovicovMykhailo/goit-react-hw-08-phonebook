@@ -9,7 +9,7 @@ import { logOut } from '../../redux/auth/operations';
 
 const UserBar = () => {
 
-  const userName = useSelector(selectUser);
+  const userEmail = useSelector(selectUser);
   const dispatch = useDispatch();
 
   function handleLogout() {
@@ -18,8 +18,8 @@ const UserBar = () => {
   }
   return (
     <div className={css.container}>
-      <h3 className={css.userName}>{`Hi, ${userName}`}</h3>
-      <img src={avatar} alt="avatar" width="100" className={css.icon} />
+      <h3 className={css.userName}>{userEmail}</h3>
+      <img src={avatar} alt="avatar" width="100" className={css.icon} title={`${userEmail}`} />
       <Button name={'Logout'} onClick={handleLogout}>
         <img src={arrowIcon} alt="Arrow" width="20" className={css.imageIcon} style={{}} />
       </Button>

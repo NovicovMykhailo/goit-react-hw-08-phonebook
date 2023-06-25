@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
-// import { lazy } from 'react';
+
+
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Home from 'Pages/Home/Home';

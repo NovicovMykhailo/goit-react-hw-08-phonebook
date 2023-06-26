@@ -1,0 +1,36 @@
+.title {
+  text-align: center;
+  margin-top: 0;
+}
+.title > h1 {
+  margin: 10px;
+}
+.description {
+  color: lightgray;
+  font-size: 16px;
+  margin: 0 auto;
+  display: block;
+  position: absolute;
+  bottom: 10px;
+  width: 92%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media screen and (min-width: 375px) {
+  .title {
+    margin-top: 50px;
+  }
+
+  .description {
+    font-size: 22px;
+    bottom: 20px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .description {
+    font-size: 26px;
+    top: 100px;
+  }
+}

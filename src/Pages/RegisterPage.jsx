@@ -1,9 +1,11 @@
+import Title from "components/Description/Title";
 import RegistrationForm from "components/RegisterForm/RegistrationForm";
 
 
 const RegisterPage = () => {
   return (
     <div style={styles.container}>
+      <Title/>
       <RegistrationForm />
     </div>
   );

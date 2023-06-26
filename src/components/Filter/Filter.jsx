@@ -13,7 +13,7 @@ const Filter = ({ filterValue, onChange, onClick }) => {
         className={css.filterField}
         value={filterValue}
         onChange={onChange}
-        placeholder={'Contact Finder'}
+        placeholder={'🔍︎ Enter Name'}
       />
       <Button onClick={onClick}>Add contact</Button>
     </div>

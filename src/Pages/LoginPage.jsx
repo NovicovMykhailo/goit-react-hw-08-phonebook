@@ -1,9 +1,12 @@
+// import Description from "components/Description/Description";
+import Title from "components/Description/Title";
 import LoginForm from "components/LoginForm/LoginForm";
 
 
 const LoginPage = () => {
   return (
     <div style={styles.container}>
+      <Title/>
       <LoginForm />
     </div>
   );

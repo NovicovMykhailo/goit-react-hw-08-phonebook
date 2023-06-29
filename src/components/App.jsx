@@ -16,6 +16,7 @@ import { refreshUser } from '../redux/auth/operations';
 import { useAuth } from '../Services/hooks';
 import { useDispatch } from 'react-redux';
 import Loader from './Loader/Loader';
+import { Toaster } from 'react-hot-toast';
 
 export function App() {
 
@@ -29,18 +30,24 @@ const { isRefreshing } = useAuth();
     dispatch(refreshUser());
   }, [dispatch]);
 
-  return isRefreshing ? (
-    <b>
-      Refreshing user... <Loader />
-    </b>
-  ) : (
-    <Routes>
-      <Route path="/">
-        <Route path="/login" element={<RestrictedRoute redirectTo="/" component={<LoginPage />} />} />
-        <Route path="/register" element={<RestrictedRoute redirectTo="/" component={<RegisterPage />} />} />
-        <Route path="/" element={<PrivateRoute redirectTo="/login" component={<Home />} />} />
-      </Route>
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+  return (
+    <>
+      <Toaster />
+      {isRefreshing ? (
+      <b>
+        Refreshing user... <Loader />
+      </b>
+      ) : (
+      <Routes>
+        <Route path="/">
+          <Route path="/login" element={<RestrictedRoute redirectTo="/" component={<LoginPage />} />} />
+          <Route path="/register" element={<RestrictedRoute redirectTo="/" component={<RegisterPage />} />} />
+          <Route path="/" element={<PrivateRoute redirectTo="/login" component={<Home />} />} />
+        </Route>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      )}
+    </>
   );
+       
 }

@@ -3,7 +3,7 @@ import css from './LoginForm.module.css';
 import { logIn } from '../../redux/auth/operations';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import Description from 'components/Description/Description';
 import ButtonInfo from 'components/ButtonInfo/ButtonInfo';
 
@@ -27,22 +27,18 @@ const LoginForm = () => {
     });
   }
 
-  const notify = () => toast.error('Ooops, You are not registered yet');
-
   const handleSubmit = e => {
     e.preventDefault();
 
-    dispatch(logIn(formData)).then(action => {
-      if ((action.type = 'auth/login/rejected')) {
-        notify();
-      }
+    dispatch(logIn(formData)).then(e => {
+      e.error ? toast.error(`${e.payload}`) : toast.success('Hooray, You are signed in');
     });
+
     resetForm();
   };
 
   return (
     <div className={css.container}>
-      <Toaster />
       <ButtonInfo
         onClick={() => {
           setIsShowInfo(prev => !prev);

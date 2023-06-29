@@ -6,6 +6,7 @@ import css from './UserBar.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from '../../redux/auth/selectors';
 import { logOut } from '../../redux/auth/operations';
+import { toast } from 'react-hot-toast';
 
 
 const UserBar = () => {
@@ -15,7 +16,9 @@ const UserBar = () => {
   const dispatch = useDispatch();
 
   function handleLogout() {
-    dispatch(logOut());
+    dispatch(logOut()).then(()=>{toast(`See you soon, I hope you'll be back`, {
+      icon: '😔',
+    });});
   }
 
   return (

@@ -3,7 +3,7 @@ import { register } from '../../redux/auth/operations';
 import css from './RegistrationForm.module.css';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { selectError } from '../../redux/auth/selectors';
 import ButtonInfo from 'components/ButtonInfo/ButtonInfo';
 import Description from 'components/Description/Description';
@@ -32,7 +32,7 @@ const RegistrationForm = () => {
     });
   }
 
-  const notify = (message = "Password didn't match") => toast.error(message);
+
 
   const handleSubmit = async e => {
     const { name, password, email, confirmedPassword } = formData;
@@ -40,21 +40,20 @@ const RegistrationForm = () => {
 
     if (confirmedPassword === password) {
       try {
-        dispatch(register({ name: name, email: email, password: password }));
+        dispatch(register({ name: name, email: email, password: password })).then(e => {
+          e.error ? toast.error(`${e.payload}`) : toast.success('Hooray, You are now registered!')
+        });
         resetForm();
-        if (error) {
-          notify(error);
-        }
-      } catch (error) {}
-    } else {
-      notify();
-    }
+        
+      } catch (error) {
+        toast.error(`Oops, something went wrong ${error.message}`);
+      }
+    } 
   };
 
   return (
     <div className={css.container}>
       <div className={css.form}>
-        <Toaster />
         <ButtonInfo
           onClick={() => {
             setIsShowInfo(prev => !prev);
@@ -89,6 +88,7 @@ const RegistrationForm = () => {
                 name="password"
                 className={css.password}
                 placeholder="Create a password"
+                title="password must be at least 8 symbols"
                 onChange={handleChange}
                 value={formData.password}
                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"

@@ -3,9 +3,11 @@ li {
   flex-direction: column;
   width: 100%;
 
+/* cursor: pointer; */
+
   color: white;
   height: min-content;
-  font-size: 24px;
+  font-size: 20px;
   list-style: none;
   gap: 12px;
   padding: 30px;

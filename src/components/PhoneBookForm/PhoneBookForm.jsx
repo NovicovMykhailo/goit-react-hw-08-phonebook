@@ -3,8 +3,9 @@ import css from './PhoneBookForm.module.css';
 import { selectContacts } from '../../redux/selectors';
 import { addContact } from '../../redux/operations';
 import { useDispatch, useSelector } from 'react-redux'; //redux
+import { toast } from 'react-hot-toast';
 
-export default function PhoneBookForm({onClick}) {
+export default function PhoneBookForm({ onClick }) {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
@@ -14,15 +15,15 @@ export default function PhoneBookForm({onClick}) {
 
   const handlerOnSubmit = e => {
     e.preventDefault();
-    if (
-      contacts.find(o => o.name.toLowerCase() === name.toLowerCase())
-    ) {
+    if (contacts.find(o => o.name.toLowerCase() === name.toLowerCase())) {
       return alert(`<< ${name} >> is already in contacts`);
     } else {
       //redux
-      dispatch(addContact({ name, number }));
+      dispatch(addContact({ name, number })).then(e => {
+        e.error ? toast.error(`${e.payload}`) : toast.success('Woohoo! You succseccfully added a contact');
+      });
       reset();
-      onClick()
+      onClick();
     }
   };
 
